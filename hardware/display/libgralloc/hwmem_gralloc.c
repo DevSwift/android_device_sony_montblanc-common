@@ -22,6 +22,7 @@
 #include <sys/mman.h>
 #include <errno.h>
 #include <limits.h>
+#include "hwmem.h"
 #include <string.h>
 #include <stdarg.h>
 
