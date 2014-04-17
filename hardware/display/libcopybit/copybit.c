@@ -47,7 +47,7 @@
 
 #include <hardware/hardware.h>
 #include <hardware/gralloc.h>
-#include <gralloc_stericsson_ext.h>
+#include "gralloc_stericsson_ext.h"
 
 
 /* Values returned for copybit_get */

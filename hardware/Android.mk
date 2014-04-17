@@ -180,7 +180,7 @@ LOCAL_PRELINK_MODULE := false
 LOCAL_MODULE_PATH := $(TARGET_OUT_SHARED_LIBRARIES)/hw
 LOCAL_SHARED_LIBRARIES := liblog libblt_hw libhardware
 SRC := display/libcopybit
-LOCAL_SRC_FILES := copybit.c
+LOCAL_SRC_FILES := ${SRC}/copybit.c
 LOCAL_MODULE := copybit.$(TARGET_BOARD_PLATFORM)
 LOCAL_MODULE_TAGS := optional
 include $(BUILD_SHARED_LIBRARY)
@@ -199,7 +199,9 @@ LOCAL_PRELINK_MODULE := false
 LOCAL_MODULE_PATH := $(TARGET_OUT_SHARED_LIBRARIES)/hw
 SRC := display/libhwcomposer
 LOCAL_SHARED_LIBRARIES := liblog libcutils libEGL libGLESv1_CM libhardware
-LOCAL_SRC_FILES := hwcomposer.c vsync_monitor.c
+LOCAL_SRC_FILES := \
+	${SRC}/hwcomposer.c \
+	${SRC}/vsync_monitor.c
 LOCAL_MODULE := hwcomposer.$(TARGET_BOARD_PLATFORM)
 LOCAL_MODULE_TAGS := optional
 include $(BUILD_SHARED_LIBRARY)
