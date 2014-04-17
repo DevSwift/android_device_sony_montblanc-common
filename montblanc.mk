@@ -3,7 +3,7 @@ $(call inherit-product, build/target/product/languages_full.mk)
 $(call inherit-product, device/common/gps/gps_eu_supl.mk)
 
 # hardware
-$(call inherit-product, device/sonymontblanc-common/hardware/common.mk)
+$(call inherit-product, device/sony/montblanc-common/hardware/common.mk)
 
 # gApps binaries
 $(call inherit-product-if-exists, vendor/google/gapps.mk)
