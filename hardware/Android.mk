@@ -461,5 +461,53 @@ LOCAL_C_INCLUDES += \
 
 include $(BUILD_SHARED_LIBRARY)
 
+# libalsactrl
+#
+
+include $(CLEAR_VARS)
+
+SRC := audio/libalsactrl
+LOCAL_SRC_FILES :=  \
+        alsactrl_alsa.c \
+        alsactrl_fm.c \
+        alsactrl_audiocodec.c \
+        alsactrl_debug.c \
+        alsactrl_hwh.c \
+        alsactrl_hwh_db.c \
+        alsactrl_hwh_u85xx.c \
+        alsactrl_statefile_parser.c \
+        alsactrl_tinyalsa_extn.c \
+        alsactrl_hwh_u8500.c \
+        alsactrl_hwh_u8500_dev.c \
+        alsactrl_hwh_u8500_d2d.c \
+        alsactrl_hwh_u8500_vc.c \
+        alsactrl_hwh_u8540.c \
+        alsactrl_hwh_u8540_dev.c \
+        alsactrl_hwh_u8540_d2d.c \
+        alsactrl_hwh_u8540_vc.c \
+        alsactrl_cscall.c
+
+LOCAL_CFLAGS += -D_POSIX_C_SOURCE
+LOCAL_CFLAGS += -O3 -Wall -funwind-tables
+LOCAL_CFLAGS += -DALSACTRL_LOG_ERRORS -DADM_LOG_WARNINGS
+
+LOCAL_MODULE           := libalsactrl
+LOCAL_MODULE_TAGS      := optional
+LOCAL_PRELINK_MODULE   := false
+
+LOCAL_SHARED_LIBRARIES := \
+        libcutils \
+        libutils \
+        libdl \
+        libc \
+        libsqlite \
+        libtinyalsa
+
+LOCAL_C_INCLUDES := \
+    $(LOCAL_PATH)/include \
+    $(LOCAL_PATH)/ \
+    $(TOP)/external/sqlite/dist/
+
+include $(BUILD_SHARED_LIBRARY)
 
 endif # BOARD_USES_STE_HARDWARE
