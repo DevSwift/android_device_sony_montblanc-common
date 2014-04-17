@@ -292,6 +292,124 @@ LOCAL_STATIC_LIBRARIES += \
 
 include $(BUILD_SHARED_LIBRARY)
 
+################################################################################
+#
+# libste_adm.so
+#
+
+include $(CLEAR_VARS)
+
+LOCAL_SRC_FILES :=  \
+        audio/adm/src/api/cscall/ste_adm_api_cscall.c \
+        audio/adm/src/api/cscall/ste_adm_cscall_omx.c \
+        audio/adm/src/api/cscall/ste_adm_api_modem.c \
+        audio/adm/src/api/ste_adm_api_d2d.c \
+        audio/adm/src/api/ste_adm_api_devset.c \
+        audio/adm/src/api/ste_adm_api_util.c \
+        audio/adm/src/db/ste_adm_db.c \
+        audio/adm/src/db/ste_adm_db_remap_check.c \
+        audio/adm/src/db/ste_adm_db_cfg.c \
+        audio/adm/src/db/ste_adm_db_test.c \
+        audio/adm/src/dev/ste_adm_dev.c \
+        audio/adm/src/dev/ste_adm_dev_omx.c \
+        audio/adm/src/dev/ste_adm_dev_omx_graph.c \
+        audio/adm/src/dev/ste_adm_dev_omx_util.c \
+        audio/adm/src/il_tool/ste_adm_omx_io.c \
+        audio/adm/src/il_tool/ste_adm_omx_log.c \
+        audio/adm/src/il_tool/ste_adm_omx_tool.c \
+        audio/adm/src/il_tool/ste_adm_omx_core.c \
+        audio/adm/src/il_tool/ste_adm_platform_adaptions.c \
+        audio/adm/src/ste_adm_client.c \
+        audio/adm/src/ste_adm_dbg.c \
+        audio/adm/src/ste_adm_srv.c \
+        audio/adm/src/ste_adm_main.c \
+        audio/adm/src/ste_adm_util.c \
+        audio/adm/src/api/ste_adm_api_tg.cpp
+
+LOCAL_CFLAGS += -fvisibility=hidden
+LOCAL_CFLAGS += -D_POSIX_C_SOURCE
+LOCAL_CFLAGS += -O3 -Wall -funwind-tables
+LOCAL_CFLAGS += -DADM_SOCKET_UID=1005
+LOCAL_CFLAGS += -DADM_SOCKET_GID=1005
+LOCAL_CFLAGS += -DADM_SOCKET_MODE=0660
+LOCAL_CFLAGS += -DADM_LOG_WARNINGS -DADM_LOG_ERRORS -DADM_LOG_STATUS
+LOCAL_CFLAGS += -DADM_SRC_MODE -DSRC_MODE_INTERNAL
+
+ifeq ($(ADM_DISABLE_FEATURE_CSCALL),true)
+LOCAL_CFLAGS += -DADM_EXCLUDE_CSCALL
+endif
+
+ifeq ($(MMPROBE_ENABLE_FEATURE_MMPROBE),true)
+LOCAL_CFLAGS += -DADM_MMPROBE
+endif
+
+ifeq ($(ADM_NO_EFFECT_CONFIG_SUPPORT), 1)
+  LOCAL_CFLAGS += -DADM_NO_EFFECT_CONFIG_SUPPORT
+endif
+
+ifeq ($(ADM_DISABLE_TONEGEN), 1)
+  LOCAL_CFLAGS += -DADM_DISABLE_TONEGEN
+endif
+
+ifeq ($(ADM_BUILD_PROD_SPEC),1)
+  LOCAL_CFLAGS += -DADM_DB_PROD_SPEC
+endif
+
+ifeq ($(ADM_DEBUG), 1)
+  LOCAL_CFLAGS += -DADM_DEBUG
+endif
+
+LOCAL_MODULE           := libste_adm
+LOCAL_MODULE_TAGS      := optional
+LOCAL_PRELINK_MODULE   := false
+
+LOCAL_SHARED_LIBRARIES := \
+        libcutils \
+        libstelpcutils \
+        libutils \
+        libdl \
+        libc \
+        libste_ens_audio_samplerateconv \
+        libsqlite \
+        libmedia \
+        libste_audio_mixer \
+        libhardware_legacy \
+        libomxil-bellagio \
+
+
+ifeq ($(MMPROBE_ENABLE_FEATURE_MMPROBE),true)
+LOCAL_SHARED_LIBRARIES += \
+        libmmprobe
+endif
+
+LOCAL_C_INCLUDES += \
+        $(LOCAL_PATH)/include \
+        $(LOCAL_PATH)/src/il_tool \
+        $(LOCAL_PATH)/src/ \
+        $(LOCAL_PATH)/src/db \
+        $(LOCAL_PATH)/src/dev \
+        $(LOCAL_PATH)/src/api \
+        $(LOCAL_PATH)/src/api/cscall \
+        $(TOP)/external/sqlite/dist/  \
+        $(TOP)/external/tinyalsa/include/ \
+        $(TOP)/external/dbus/ \
+        $(TOP)/external/libat/ \
+        $(STE_MM_C_INCLUDES) \
+        $(MULTIMEDIA_PATH)/audio/mmprobe/api \
+        $(APPS_PATH)/caif_socket_broker/lib \
+        $(APPS_PATH)/caif_socket_broker/integration
+
+LOCAL_CFLAGS += -DSTE_PLATFORM_U8500
+
+LOCAL_SHARED_LIBRARIES += \
+        libalsactrl
+
+LOCAL_C_INCLUDES += \
+        $(MULTIMEDIA_PATH)/audio/alsactrl/include
+
+endif
+include $(BUILD_SHARED_LIBRARY)
+
 
 
 
