@@ -38,7 +38,7 @@ extern "C" {
  *  for this header file to compile successfully
  */
 
-#include <OMX_Index.h>
+#include "OMX_Index.h"
 
 /** The OMX_COMMANDTYPE enumeration is used to specify the action in the
  *  OMX_SendCommand macro.
