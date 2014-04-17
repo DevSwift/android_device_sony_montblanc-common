@@ -19,7 +19,7 @@
 #include <EGL/egl.h>
 #include <GLES/gl.h>
 #include <hardware/gralloc.h>
-#include "gralloc_stericsson_ext.h"
+#include <gralloc_stericsson_ext.h>
 #include <linux/hwmem.h>
 #include <linux/compdev.h>
 #include <limits.h>

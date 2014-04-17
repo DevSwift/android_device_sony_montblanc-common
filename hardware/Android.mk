@@ -173,8 +173,8 @@ include $(BUILD_SHARED_LIBRARY)
 # HAL module implemenation, not prelinked and stored in
 # hw/<COPYPIX_HARDWARE_MODULE_ID>.<ro.board.platform>.so
 include $(CLEAR_VARS)
-MULTIMEDIA_PATH := $(LOCAL_PATH)/../../multimedia
-GRALLOC_PATH := $(LOCAL_PATH)/../libgralloc
+MULTIMEDIA_PATH := $(LOCAL_PATH)/../multimedia
+GRALLOC_PATH := $(LOCAL_PATH)/../../libgralloc
 LOCAL_C_INCLUDES := $(MULTIMEDIA_PATH)/linux/b2r2lib/include $(GRALLOC_PATH)
 LOCAL_PRELINK_MODULE := false
 LOCAL_MODULE_PATH := $(TARGET_OUT_SHARED_LIBRARIES)/hw
@@ -190,8 +190,8 @@ include $(BUILD_SHARED_LIBRARY)
 
 # HAL module implemenation, not prelinked and stored in
 # hw/<COPYPIX_HARDWARE_MODULE_ID>.<ro.product.board>.so
-GRALLOC_PATH := $(LOCAL_PATH)/../libgralloc
-MULTIMEDIA_PATH := $(LOCAL_PATH)/../../multimedia
+GRALLOC_PATH := $(LOCAL_PATH)/../../libgralloc
+MULTIMEDIA_PATH := $(LOCAL_PATH)/../multimedia
 
 include $(CLEAR_VARS)
 LOCAL_C_INCLUDES := $(GRALLOC_PATH) $(MULTIMEDIA_PATH)
