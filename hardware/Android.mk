@@ -298,33 +298,33 @@ include $(BUILD_SHARED_LIBRARY)
 #
 
 include $(CLEAR_VARS)
-
+SRC := audio/adm
 LOCAL_SRC_FILES :=  \
-        audio/adm/src/api/cscall/ste_adm_api_cscall.c \
-        audio/adm/src/api/cscall/ste_adm_cscall_omx.c \
-        audio/adm/src/api/cscall/ste_adm_api_modem.c \
-        audio/adm/src/api/ste_adm_api_d2d.c \
-        audio/adm/src/api/ste_adm_api_devset.c \
-        audio/adm/src/api/ste_adm_api_util.c \
-        audio/adm/src/db/ste_adm_db.c \
-        audio/adm/src/db/ste_adm_db_remap_check.c \
-        audio/adm/src/db/ste_adm_db_cfg.c \
-        audio/adm/src/db/ste_adm_db_test.c \
-        audio/adm/src/dev/ste_adm_dev.c \
-        audio/adm/src/dev/ste_adm_dev_omx.c \
-        audio/adm/src/dev/ste_adm_dev_omx_graph.c \
-        audio/adm/src/dev/ste_adm_dev_omx_util.c \
-        audio/adm/src/il_tool/ste_adm_omx_io.c \
-        audio/adm/src/il_tool/ste_adm_omx_log.c \
-        audio/adm/src/il_tool/ste_adm_omx_tool.c \
-        audio/adm/src/il_tool/ste_adm_omx_core.c \
-        audio/adm/src/il_tool/ste_adm_platform_adaptions.c \
-        audio/adm/src/ste_adm_client.c \
-        audio/adm/src/ste_adm_dbg.c \
-        audio/adm/src/ste_adm_srv.c \
-        audio/adm/src/ste_adm_main.c \
-        audio/adm/src/ste_adm_util.c \
-        audio/adm/src/api/ste_adm_api_tg.cpp
+        $(SRC)/src/api/cscall/ste_adm_api_cscall.c \
+        $(SRC)/src/api/cscall/ste_adm_cscall_omx.c \
+        $(SRC)/src/api/cscall/ste_adm_api_modem.c \
+        $(SRC)/src/api/ste_adm_api_d2d.c \
+        $(SRC)/src/api/ste_adm_api_devset.c \
+        $(SRC)/src/api/ste_adm_api_util.c \
+        $(SRC)/src/db/ste_adm_db.c \
+        $(SRC)/src/db/ste_adm_db_remap_check.c \
+        $(SRC)/src/db/ste_adm_db_cfg.c \
+        $(SRC)/src/db/ste_adm_db_test.c \
+        $(SRC)/src/dev/ste_adm_dev.c \
+        $(SRC)/src/dev/ste_adm_dev_omx.c \
+        $(SRC)/src/dev/ste_adm_dev_omx_graph.c \
+        $(SRC)/src/dev/ste_adm_dev_omx_util.c \
+        $(SRC)/src/il_tool/ste_adm_omx_io.c \
+        $(SRC)/src/il_tool/ste_adm_omx_log.c \
+        $(SRC)/src/il_tool/ste_adm_omx_tool.c \
+        $(SRC)/src/il_tool/ste_adm_omx_core.c \
+        $(SRC)/src/il_tool/ste_adm_platform_adaptions.c \
+        $(SRC)/src/ste_adm_client.c \
+        $(SRC)/src/ste_adm_dbg.c \
+        $(SRC)/src/ste_adm_srv.c \
+        $(SRC)/src/ste_adm_main.c \
+        $(SRC)/src/ste_adm_util.c \
+        $(SRC)/src/api/ste_adm_api_tg.cpp
 
 LOCAL_CFLAGS += -fvisibility=hidden
 LOCAL_CFLAGS += -D_POSIX_C_SOURCE
@@ -417,11 +417,11 @@ include $(CLEAR_VARS)
 
 SRC := media/libstelpcutils
 LOCAL_SRC_FILES := \
-   stelp_log.c \
-   stelp_fatal.c \
-   stelp_time.c \
-   OMXdebug.cpp \
-   OMXdebug_specific.c
+   $(SRC)/stelp_log.c \
+   $(SRC)/stelp_fatal.c \
+   $(SRC)/stelp_time.c \
+   $(SRC)/OMXdebug.cpp \
+   $(SRC)/OMXdebug_specific.c
 
 LOCAL_LDLIBS := -llog -lpthread -lrt 
 LOCAL_CFLAGS += -DFREQ_SCALING_ALLOWED -DANDROID
@@ -467,24 +467,24 @@ include $(CLEAR_VARS)
 
 SRC := audio/libalsactrl
 LOCAL_SRC_FILES :=  \
-        alsactrl_alsa.c \
-        alsactrl_fm.c \
-        alsactrl_audiocodec.c \
-        alsactrl_debug.c \
-        alsactrl_hwh.c \
-        alsactrl_hwh_db.c \
-        alsactrl_hwh_u85xx.c \
-        alsactrl_statefile_parser.c \
-        alsactrl_tinyalsa_extn.c \
-        alsactrl_hwh_u8500.c \
-        alsactrl_hwh_u8500_dev.c \
-        alsactrl_hwh_u8500_d2d.c \
-        alsactrl_hwh_u8500_vc.c \
-        alsactrl_hwh_u8540.c \
-        alsactrl_hwh_u8540_dev.c \
-        alsactrl_hwh_u8540_d2d.c \
-        alsactrl_hwh_u8540_vc.c \
-        alsactrl_cscall.c
+        $(SRC)/alsactrl_alsa.c \
+        $(SRC)/alsactrl_fm.c \
+        $(SRC)/alsactrl_audiocodec.c \
+        $(SRC)/alsactrl_debug.c \
+        $(SRC)/alsactrl_hwh.c \
+        $(SRC)/alsactrl_hwh_db.c \
+        $(SRC)/alsactrl_hwh_u85xx.c \
+        $(SRC)/alsactrl_statefile_parser.c \
+        $(SRC)/alsactrl_tinyalsa_extn.c \
+        $(SRC)/alsactrl_hwh_u8500.c \
+        $(SRC)/alsactrl_hwh_u8500_dev.c \
+        $(SRC)/alsactrl_hwh_u8500_d2d.c \
+        $(SRC)/alsactrl_hwh_u8500_vc.c \
+        $(SRC)/alsactrl_hwh_u8540.c \
+        $(SRC)/alsactrl_hwh_u8540_dev.c \
+        $(SRC)/alsactrl_hwh_u8540_d2d.c \
+        $(SRC)/alsactrl_hwh_u8540_vc.c \
+        $(SRC)/alsactrl_cscall.c
 
 LOCAL_CFLAGS += -D_POSIX_C_SOURCE
 LOCAL_CFLAGS += -O3 -Wall -funwind-tables
