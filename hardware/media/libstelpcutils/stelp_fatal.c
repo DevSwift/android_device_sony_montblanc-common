@@ -6,7 +6,7 @@
  */
 #if defined(ANDROID)
 #define LOG_TAG "STE_SYSLOG_FATAL"
-#include "linux_utils.h"
+#include <linux_utils.h>
 #include <unwind.h>
 #include <pthread.h>
 

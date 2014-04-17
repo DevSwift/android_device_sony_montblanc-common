@@ -22,7 +22,7 @@
 #include <sys/mman.h>
 #include <errno.h>
 #include <limits.h>
-#include "hwmem.h"
+#include <linux/hwmem.h>
 #include <string.h>
 #include <stdarg.h>
 
@@ -41,7 +41,6 @@
 #include "hwmem_gralloc_pmem.h"
 #include "hwmem_gralloc_framebuffer.h"
 
-#include "hwmem.h"
 
 #if defined(INT_MAX) && INT_MAX != 2147483647
     #error "Hwmem gralloc only supports 32 bit ints"

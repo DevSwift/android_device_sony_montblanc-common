@@ -4,7 +4,7 @@
  * Any use of the code for whatever purpose is subject to
  * specific written permission of ST-Ericsson SA.
  */
-#include "linux_utils.h"
+#include <linux_utils.h>
 #include <time.h>
 #if defined(ANDROID)
 int stelp_get_timeofday(char *buffer, size_t size)

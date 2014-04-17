@@ -17,7 +17,7 @@
 #include <pthread.h>
 #include <sys/inotify.h>
 
-#include "linux_utils.h"
+#include <linux_utils.h>
 
 
 #define __DO_LOG_BSIZE 1024

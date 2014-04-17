@@ -31,7 +31,7 @@
 #include <openmax/il/khronos/v1_x/OMX_Types.h>
 #else
 #include <OMX_Core.h>
-#include "OMX_Types.h"
+#include <OMX_Types.h>
 #endif
 
 /**

@@ -8,7 +8,7 @@
 #ifndef _MMHWBUFFER_EXT_H_
 #define _MMHWBUFFER_EXT_H_
 
-#include "OMX_Types.h"
+#include <OMX_Types.h>
 
 #ifdef __cplusplus
 extern "C" {

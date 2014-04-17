@@ -1,3 +1,0 @@
-set confirm off
-handle SIGPIPE pass nostop noprint
-r
