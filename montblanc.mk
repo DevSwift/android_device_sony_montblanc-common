@@ -44,8 +44,7 @@ PRODUCT_COPY_FILES += \
         device/sony/montblanc-common/config/hostapd.conf:system/etc/wifi/hostapd.conf \
         device/sony/montblanc-common/config/01stesetup:system/etc/init.d/01stesetup \
         device/sony/montblanc-common/config/10wireless:system/etc/init.d/10wireless \
-        device/sony/montblanc-common/config/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
-        device/sony/montblanc-common/config/dhcpcd.conf:system/etc/dhcpcd/dhcpcd.conf
+        device/sony/montblanc-common/config/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
         
 # KitKat Launcher
 PRODUCT_PACKAGES += Launcher3        
