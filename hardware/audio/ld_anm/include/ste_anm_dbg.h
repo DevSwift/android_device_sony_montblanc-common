@@ -1,27 +1,25 @@
 /*
- * Copyright (C) ST-Ericsson SA 2012. All rights reserved.
+ * Copyright (C) ST-Ericsson SA 2010. All rights reserved.
  * This code is ST-Ericsson proprietary and confidential.
  * Any use of the code for whatever purpose is subject to
  * specific written permission of ST-Ericsson SA.
  */
-/*! \file ste_hal_anm_dbg.h
+/*! \file ste_anm_dbg.h
     \brief Debugging utilities.
 
     Print macros etc.
     Logs are enabled using setprop.
     Example: setprop ste.debug.anm.log "INFO INFO_V"
 */
-#ifndef STE_HAL_ANM_DBG_INCLUSION_GUARD_H
-#define STE_HAL_ANM_DBG_INCLUSION_GUARD_H
+#ifndef STE_ANM_DBG_INCLUSION_GUARD_H
+#define STE_ANM_DBG_INCLUSION_GUARD_H
 
 /**
 * LOG TAG used to enable ANM debug prints on target
 */
-
+#define LOG_TAG "ANM"
 #include <linux_utils.h>
-#include <stdio.h>
-#include <string.h>
-
+#include <cstdio>
 
 /**
 * Enum containing all available log levels.
@@ -40,10 +38,10 @@ enum STE_ANM_LOGLEVEL {
 *
 * @return Success: 0 Failure: -1
 */
-int ste_anm_debug_setup_log();
+int ste_anm_debug_setup_log(void);
 
 /**
-* Logs name to output and/or file depending on current settings and level.
+* Logs data to output and/or file depending on current settings and level.
 * Do not use directly, instead use the appropriate LOG_x macro.
 *
 * @param level      The loglevel of the message, must be a value from the
@@ -133,6 +131,5 @@ int ste_anm_debug_print(enum STE_ANM_LOGLEVEL level, const char *file,
             ANM_LOG_BASE(STE_ANM_LOG_ERR, __VA_ARGS__);                     \
         } while (0)
 
+#endif /* STE_ANM_DBG_INCLUSION_GUARD_H */
 
-
-#endif /* STE_HAL_ANM_DBG_INCLUSION_GUARD_H */

@@ -203,22 +203,17 @@ $(shell touch $(TARGET_OUT_INTERMEDIATES)/SHARED_LIBRARIES/libste_adm_intermedia
 SRC_FOLDER_AHI := audio/ld_anm/src/ahi
 SRC_FOLDER_DBG := audio/ld_anm/src
 SRC_FILES_ANM := \
-	$(SRC_FOLDER_AHI)/ste_anm_ahi.c \
-	$(SRC_FOLDER_AHI)/ste_anm_ahi_output.c \
-	$(SRC_FOLDER_AHI)/ste_anm_ahi_input.c \
-	$(SRC_FOLDER_AHI)/ste_anm_ahi_admbase.c \
-	$(SRC_FOLDER_DBG)/ste_anm_dbg.c \
-	$(SRC_FOLDER_DBG)/ste_anm_util.c
+	$(SRC_FOLDER_AHI)/ste_anm_ahi.cc \
+	$(SRC_FOLDER_AHI)/ste_anm_ahi_output.cc \
+	$(SRC_FOLDER_AHI)/ste_anm_ahi_input.cc \
+	$(SRC_FOLDER_AHI)/ste_anm_ahi_admbase.cc \
+	$(SRC_FOLDER_DBG)/ste_anm_dbg.cc
 
 SRC_FOLDER_AP := audio/ld_anm/src/policy
 
 SRC_FILES_AP := \
-	$(SRC_FOLDER_AP)/ste_anm_ap.c \
-	$(SRC_FOLDER_AP)/ste_anm_ext_hal.c \
-	$(SRC_FOLDER_AP)/ste_hal_a2dp.c \
-	$(SRC_FOLDER_AP)/ste_hal_usb.c \
-	$(SRC_FOLDER_DBG)/ste_anm_dbg.c \
-	$(SRC_FOLDER_DBG)/ste_anm_util.c
+	$(SRC_FOLDER_AP)/ste_anm_ap.cc \
+    $(SRC_FOLDER_DBG)/ste_anm_dbg.cc
 
 CFLAGS_COMMON_ANM := -DLOG_WARNINGS \
 	-DLOG_ERRORS \

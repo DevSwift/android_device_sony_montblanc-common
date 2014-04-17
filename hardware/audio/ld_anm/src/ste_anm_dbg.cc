@@ -1,18 +1,17 @@
 /*
- * Copyright (C) ST-Ericsson SA 2012. All rights reserved.
+ * Copyright (C) ST-Ericsson SA 2010. All rights reserved.
  * This code is ST-Ericsson proprietary and confidential.
  * Any use of the code for whatever purpose is subject to
  * specific written permission of ST-Ericsson SA.
  */
-/*! \file ste_anm_dbg.c
+/*! \file ste_anm_dbg.cc
     \brief Debugging utilities.
 
     Implementation of debugging utilities.
 */
+#include "ste_anm_dbg.h"
 
-#define LOG_TAG "ANM"
-#include "ste_hal_anm_dbg.h"
-
+#include <assert.h>
 #include <string.h>
 #include <stdarg.h>
 #include <cutils/log.h>
@@ -79,7 +78,7 @@ char *log_prefix[STE_ANM_LOG_LAST] = {
 #endif
 
 /* ste_anm_debug_setup_dlog */
-int ste_anm_debug_setup_log()
+int ste_anm_debug_setup_log(void)
 {
     log_state[STE_ANM_LOG_INFO] = LOG_INFO_DEFINED;
     log_state[STE_ANM_LOG_INFO_VERBOSE] = LOG_INFO_VERBOSE_DEFINED;
@@ -91,7 +90,7 @@ int ste_anm_debug_setup_log()
     property_get("ste.debug.anm.log", prop, "");
     prop[PROPERTY_VALUE_MAX-1]=0;
     const char* name_start=prop;
-    while (*name_start) {
+    while(*name_start) {
         const char* name_end  = name_start;
         while (*name_end && *name_end != ' ') name_end++;
 
@@ -112,8 +111,6 @@ int ste_anm_debug_setup_log()
 
     return 0;
 }
-
-
 
 #define BUFFER_LENGTH 2048
 int ste_anm_debug_print(enum STE_ANM_LOGLEVEL level,
@@ -138,21 +135,20 @@ int ste_anm_debug_print(enum STE_ANM_LOGLEVEL level,
 
     switch (level) {
     case STE_ANM_LOG_ERR:
-        ALOGE("[%.8s] %s:%d %s%s", log_prefix[level],
+        LOGE("[%.8s] %s:%d %s%s", log_prefix[level],
             file, line, buffer, insert_newline);
         break;
     case STE_ANM_LOG_WARN:
-        ALOGW("[%.8s] %s:%d %s%s", log_prefix[level],
+        LOGW("[%.8s] %s:%d %s%s", log_prefix[level],
             file, line, buffer, insert_newline);
         break;
     case STE_ANM_LOG_INFO:
     case STE_ANM_LOG_INFO_VERBOSE:
     default:
-        ALOGI("[%.8s] %s:%d %s%s", log_prefix[level],
+        LOGI("[%.8s] %s:%d %s%s", log_prefix[level],
             file, line, buffer, insert_newline);
         break;
     }
 
   return 0;
 }
-
