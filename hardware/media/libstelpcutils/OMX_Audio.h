@@ -38,7 +38,7 @@ extern "C" {
  *  for this header file to compile successfully
  */
 
-#include <OMX_Core.h>
+#include "OMX_Core.h"
 
 /** @defgroup midi MIDI
  * @ingroup audio
