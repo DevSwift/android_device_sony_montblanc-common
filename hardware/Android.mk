@@ -407,7 +407,6 @@ LOCAL_SHARED_LIBRARIES += \
 LOCAL_C_INCLUDES += \
         $(MULTIMEDIA_PATH)/audio/alsactrl/include
 
-endif
 include $(BUILD_SHARED_LIBRARY)
 
 # libstelpcutils
