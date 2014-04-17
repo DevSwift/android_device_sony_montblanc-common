@@ -48,6 +48,7 @@ PRODUCT_COPY_FILES += \
 		
 # Audio HAL
 PRODUCT_PACKAGES += \
+   libalsactrl.so \
    libste_adm.so \
    libstelpcutils.so \
    audio_policy.montblanc \
