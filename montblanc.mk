@@ -45,6 +45,19 @@ PRODUCT_COPY_FILES += \
         device/sony/montblanc-common/config/10wireless:system/etc/init.d/10wireless \
         device/sony/montblanc-common/config/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
         device/sony/montblanc-common/config/dhcpcd.conf:system/etc/dhcpcd/dhcpcd.conf
+		
+# Audio HAL
+PRODUCT_PACKAGES += \
+   audio_policy.montblanc \
+   audio.primary.montblanc
+   
+# libgralloc
+PRODUCT_PACKAGES += \
+   gralloc.montblanc
+   
+# libcopybit
+PRODUCT_PACKAGES += \
+   copybit.montblanc
         
 # KitKat Launcher
 PRODUCT_PACKAGES += Launcher3        
