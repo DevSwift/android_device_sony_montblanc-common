@@ -148,6 +148,48 @@ LOCAL_FORCE_STATIC_EXECUTABLE := true
 LOCAL_MODULE:=iw
 include $(BUILD_EXECUTABLE)
 
+# copybit
+#
+
+# HAL module implemenation, not prelinked and stored in
+# hw/<COPYPIX_HARDWARE_MODULE_ID>.<ro.board.platform>.so
+include $(CLEAR_VARS)
+MULTIMEDIA_PATH := $(LOCAL_PATH)/../multimedia
+GRALLOC_PATH := $(LOCAL_PATH)/../../libgralloc
+LOCAL_C_INCLUDES := $(MULTIMEDIA_PATH)/linux/b2r2lib/include $(GRALLOC_PATH)
+LOCAL_PRELINK_MODULE := false
+LOCAL_MODULE_PATH := $(TARGET_OUT_SHARED_LIBRARIES)/hw
+LOCAL_SHARED_LIBRARIES := liblog libblt_hw libhardware
+SRC := display/libcopybit
+LOCAL_SRC_FILES := ${SRC}/copybit.c
+LOCAL_MODULE := copybit.$(TARGET_BOARD_PLATFORM)
+LOCAL_MODULE_TAGS := optional
+include $(BUILD_SHARED_LIBRARY)
+
+
+# gralloc
+#
+
+MULTIMEDIA_PATH := $(LOCAL_PATH)/../../multimedia
+
+# HAL module implemenation, not prelinked and stored in
+# hw/<OVERLAY_HARDWARE_MODULE_ID>.<ro.product.board>.so
+include $(CLEAR_VARS)
+LOCAL_PRELINK_MODULE := false
+LOCAL_MODULE_PATH := $(TARGET_OUT_SHARED_LIBRARIES)/hw
+LOCAL_SHARED_LIBRARIES := liblog libcutils libGLESv1_CM
+SRC := display/libgralloc
+LOCAL_SRC_FILES := 	\
+	${SRC}/hwmem_gralloc.c \
+        ${SRC}/hwmem_gralloc_pmem.c \
+        ${SRC}/hwmem_gralloc_framebuffer.c
+
+LOCAL_C_INCLUDES += $(MULTIMEDIA_PATH)/linux/b2r2lib/include $(MULTIMEDIA_PATH)
+LOCAL_MODULE := gralloc.$(TARGET_BOARD_PLATFORM)
+LOCAL_MODULE_TAGS := optional
+LOCAL_CFLAGS:= -DLOG_TAG=\"gralloc\"
+include $(BUILD_SHARED_LIBRARY)
+
 
 
 endif # BOARD_USES_STE_HARDWARE
